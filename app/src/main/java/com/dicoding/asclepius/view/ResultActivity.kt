@@ -18,10 +18,14 @@ class ResultActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val imageUri = Uri.parse(intent.getStringExtra(EXTRA_IMAGE_URI))
+        val resultText = intent.getStringExtra(EXTRA_RESULT)
+
         imageUri?.let {
             Log.d("Image URI", "showImage: $it")
             binding.resultImage.setImageURI(it)
         }
+
+        binding.resultText.text = resultText?: "tidak dapat memuat gambar!"
 
     }
 
